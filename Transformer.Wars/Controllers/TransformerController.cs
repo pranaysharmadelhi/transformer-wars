@@ -8,7 +8,7 @@ namespace Transformer.Wars.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class TransformerController : ControllerBase
     {
         // GET api/values
         [HttpGet]
