@@ -8,10 +8,34 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\DB\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20190329002039_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329002039_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329002341_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329002341_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329002654_sp-getScore.cs" />
+    <Compile Remove="Migrations\20190329003025_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329003025_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329003643_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329003643_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\TransformerWarsContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20190329003821_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329003821_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329004312_sp-getScore.cs" />
+    <Compile Remove="Migrations\20190329004355_Masterscript.cs" />
+    <Compile Remove="Migrations\20190329004355_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329010142_firstdatas.cs" />
+  </ItemGroup>
 </Project>
