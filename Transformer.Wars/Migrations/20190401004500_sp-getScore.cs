@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Transformer.Wars.Migrations
 {
@@ -12,7 +11,7 @@ namespace Transformer.Wars.Migrations
                 AS
                 BEGIN
                     SET NOCOUNT ON;
-                    SELECT (Strength + Intelligence + Speed + Endurance + Courage + Firepower + Skill) as Score FROM Transformers Where TransformerId = @TransformerId
+                    SELECT (Strength + Intelligence + Speed + Endurance + Courage + Firepower + Skill + Rank) as Score FROM Transformers Where TransformerId = @TransformerId
                 END";
 
             migrationBuilder.Sql(sp);

@@ -9,8 +9,8 @@ using Transformer.Wars.Models.DB;
 namespace Transformer.Wars.Migrations
 {
     [DbContext(typeof(TransformerWarsContext))]
-    [Migration("20190329005815_sp-getScore")]
-    partial class spgetScore
+    [Migration("20190401004442_Masterscript")]
+    partial class Masterscript
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,10 +29,26 @@ namespace Transformer.Wars.Migrations
                     b.HasKey("AllegianceTypeId");
 
                     b.ToTable("AllegianceTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            AllegianceTypeId = 1,
+                            AllegianceTypeTitle = "Autobot"
+                        },
+                        new
+                        {
+                            AllegianceTypeId = 2,
+                            AllegianceTypeTitle = "Decepticon"
+                        });
                 });
 
             modelBuilder.Entity("Transformer.Wars.Models.DB.Transformer", b =>
                 {
+                    b.Property<int>("TransformerId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("AllegianceTypeId");
 
                     b.Property<short>("Courage");
@@ -55,13 +71,7 @@ namespace Transformer.Wars.Migrations
 
                     b.Property<short>("Strength");
 
-                    b.Property<int>("TransformerId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("AllegianceTypeId");
-
-                    b.HasAlternateKey("TransformerId");
+                    b.HasKey("TransformerId");
 
                     b.HasIndex("AllegianceTypeId");
 

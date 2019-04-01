@@ -12,10 +12,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
-using Transformer.Wars.Models.DB;
 
 namespace Transformer.Wars
 {
+    using Interfaces;
+    using Models.DB;
+    using Services;
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -29,11 +31,15 @@ namespace Transformer.Wars
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TransformerWarsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TransformerWars")));
+            services.AddScoped<IWarService, WarService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Transformer Wars API", Version = "v1" });
+                c.DescribeAllEnumsAsStrings();
+                c.EnableAnnotations();
+
             });
         }
 
@@ -48,11 +54,7 @@ namespace Transformer.Wars
             {
                 app.UseHsts();
             }
-
             app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transformer Wars API API V1");

@@ -23,9 +23,9 @@ namespace Transformer.Wars.Migrations
                 name: "Transformers",
                 columns: table => new
                 {
-                    AllegianceTypeId = table.Column<int>(nullable: false),
                     TransformerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AllegianceTypeId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 500, nullable: false),
                     Rank = table.Column<short>(nullable: false),
                     Strength = table.Column<short>(nullable: false),
@@ -38,8 +38,7 @@ namespace Transformer.Wars.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transformers", x => x.AllegianceTypeId);
-                    table.UniqueConstraint("AK_Transformers_TransformerId", x => x.TransformerId);
+                    table.PrimaryKey("PK_Transformers", x => x.TransformerId);
                     table.ForeignKey(
                         name: "FK_Transformers_AllegianceTypes_AllegianceTypeId",
                         column: x => x.AllegianceTypeId,
@@ -47,6 +46,16 @@ namespace Transformer.Wars.Migrations
                         principalColumn: "AllegianceTypeId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AllegianceTypes",
+                columns: new[] { "AllegianceTypeId", "AllegianceTypeTitle" },
+                values: new object[] { 1, "Autobot" });
+
+            migrationBuilder.InsertData(
+                table: "AllegianceTypes",
+                columns: new[] { "AllegianceTypeId", "AllegianceTypeTitle" },
+                values: new object[] { 2, "Decepticon" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transformers_AllegianceTypeId",

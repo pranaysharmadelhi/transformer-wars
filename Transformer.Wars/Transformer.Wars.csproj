@@ -14,11 +14,16 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Models\DB\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\DTO\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Migrations\20190329002039_Masterscript.cs" />
@@ -37,5 +42,18 @@
     <Compile Remove="Migrations\20190329004355_Masterscript.cs" />
     <Compile Remove="Migrations\20190329004355_Masterscript.Designer.cs" />
     <Compile Remove="Migrations\20190329010142_firstdatas.cs" />
+    <Compile Remove="Migrations\20190329004428_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190329004428_Masterscript.cs" />
+    <Compile Remove="Migrations\20190330162117_Masterscript.cs" />
+    <Compile Remove="Migrations\20190330162117_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190330163723_Masterscript.cs" />
+    <Compile Remove="Migrations\20190330163723_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190330165456_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190330165456_Masterscript.cs" />
+    <Compile Remove="Migrations\20190331230821_Masterscript.cs" />
+    <Compile Remove="Migrations\20190331230821_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190331235930_Masterscript.cs" />
+    <Compile Remove="Migrations\20190331235930_Masterscript.Designer.cs" />
+    <Compile Remove="Migrations\20190401004417_Masterscript.cs" />
   </ItemGroup>
 </Project>

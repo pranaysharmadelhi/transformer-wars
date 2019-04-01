@@ -27,10 +27,26 @@ namespace Transformer.Wars.Migrations
                     b.HasKey("AllegianceTypeId");
 
                     b.ToTable("AllegianceTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            AllegianceTypeId = 1,
+                            AllegianceTypeTitle = "Autobot"
+                        },
+                        new
+                        {
+                            AllegianceTypeId = 2,
+                            AllegianceTypeTitle = "Decepticon"
+                        });
                 });
 
             modelBuilder.Entity("Transformer.Wars.Models.DB.Transformer", b =>
                 {
+                    b.Property<int>("TransformerId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("AllegianceTypeId");
 
                     b.Property<short>("Courage");
@@ -53,17 +69,22 @@ namespace Transformer.Wars.Migrations
 
                     b.Property<short>("Strength");
 
-                    b.Property<int>("TransformerId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("AllegianceTypeId");
-
-                    b.HasAlternateKey("TransformerId");
+                    b.HasKey("TransformerId");
 
                     b.HasIndex("AllegianceTypeId");
 
                     b.ToTable("Transformers");
+                });
+
+            modelBuilder.Entity("Transformer.Wars.Models.DB.TransformerScore", b =>
+                {
+                    b.Property<int>("Score")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("Score");
+
+                    b.ToTable("TransformerScores");
                 });
 
             modelBuilder.Entity("Transformer.Wars.Models.DB.Transformer", b =>
